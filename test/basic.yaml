@@ -1,0 +1,21 @@
+steps:
+  - name: set
+    run: |
+      qahyacli env set GREETING="hello world" COLOR=blue
+      echo "same step, own env: GREETING = '$GREETING'"
+      echo "same step, via get: GREETING = '$(qahyacli env get GREETING)'"
+
+  - name: next-step
+    run: |
+      echo "next step, own env: GREETING='$GREETING' COLOR='$COLOR'"
+      qahyacli env list
+
+  - name: unset
+    run: |
+      qahyacli env unset COLOR
+      echo "after unset, in the same step:  COLOR='$COLOR'"
+
+  - name: after-unset
+    run: |
+      echo "after unset:  COLOR='$COLOR'"
+      qahyacli env list

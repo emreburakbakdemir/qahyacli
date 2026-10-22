@@ -1,0 +1,9 @@
+steps:
+  - name: script
+    run: sh demo.sh
+
+  - name: after-script
+    run: |
+      echo "DEPLOYED_VERSION  =   '$DEPLOYED_VERSION"
+      echo "LOCAL_ONLY   =    '$(LOCAL_ONLY:-)"
+      echo "APP_ENV   =   '$APP_ENV"

@@ -1,0 +1,7 @@
+steps:
+  - name: wait
+    run: |
+      echo "socket: $QAHYA_JOB_API"
+      sleep 300
+  - name: show
+    run: qahyacli env list
